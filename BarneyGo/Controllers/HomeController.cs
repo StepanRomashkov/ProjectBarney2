@@ -28,9 +28,14 @@ namespace BarneyGo.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Login()
         {
-            ViewBag.Message = "Here should be the Google Login page";
+            var curUserEmail = System.Security.Claims.ClaimsPrincipal.Current.Claims.Last().Value;
+            var curUserName = System.Security.Claims.ClaimsPrincipal.Current.Claims.ElementAt(3).Value;
+            
+            ViewBag.Message = "Current user's email: " + curUserEmail + " | " +
+                               "Welcome, " + curUserName;
 
             return View();
         }
