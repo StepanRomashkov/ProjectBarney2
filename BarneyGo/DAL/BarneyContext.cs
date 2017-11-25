@@ -9,10 +9,6 @@ namespace BarneyGo.DAL
     public class BarneyContext: DbContext
     {
 
-        //public BarneyContext(): base("BarneyContext")
-        //{
-        //}
-
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Syllabus> Syllabuses { get; set; }
         public DbSet<User> Users { get; set; }

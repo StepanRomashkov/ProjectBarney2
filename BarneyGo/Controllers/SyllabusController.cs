@@ -48,7 +48,6 @@ namespace BarneyGo.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,AdminId")] Syllabus syllabus)
         {
             if (ModelState.IsValid)
@@ -82,7 +81,6 @@ namespace BarneyGo.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,AdminId")] Syllabus syllabus)
         {
             if (ModelState.IsValid)
@@ -112,7 +110,6 @@ namespace BarneyGo.Controllers
 
         // POST: Syllabus/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Syllabus syllabus = db.Syllabuses.Find(id);
