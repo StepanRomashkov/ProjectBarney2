@@ -31,7 +31,7 @@ namespace BarneyGo.Controllers
         [Authorize]
         public ActionResult Login()
         {
-            var curUserEmail = System.Security.Claims.ClaimsPrincipal.Current.Claims.Last().Value;
+            var curUserEmail = System.Security.Claims.ClaimsPrincipal.Current.Claims.ElementAt(4).Value;
             var curUserName = System.Security.Claims.ClaimsPrincipal.Current.Claims.ElementAt(3).Value;
             
             ViewBag.Message = "Current user's email: " + curUserEmail + " | " +

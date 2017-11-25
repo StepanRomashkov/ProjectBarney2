@@ -50,6 +50,7 @@ namespace BarneyGo.Controllers
             public override void ExecuteResult(ControllerContext context)
             {
                 var properties = new AuthenticationProperties() { RedirectUri = RedirectUri };
+                properties.Dictionary["prompt"] = "select_account";
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
         }
