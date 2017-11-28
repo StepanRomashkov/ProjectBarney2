@@ -24,8 +24,8 @@ namespace BarneyGo
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions
             {
-                ClientId = "replace with our Google ClientID",
-                ClientSecret = "replace with our Google ClientSecret"
+                ClientId = "1093499569682-f5s3s4anvom2qmetf87hvbkit8ot86a8.apps.googleusercontent.com",
+                ClientSecret = "Kg_Xjyy-WlJEt36Jo-3ZB1K4"
             });
         }
 
