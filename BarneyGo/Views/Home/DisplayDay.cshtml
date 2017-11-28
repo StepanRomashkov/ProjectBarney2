@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<BarneyGo.Models.Day>
+
 @{
     ViewBag.Title = "DisplayDay";
     
@@ -7,3 +8,14 @@
 <h2>DisplayDay</h2>
 <h3>@ViewBag.Message</h3>
 
+
+
+@section scripts
+{
+<script>
+    $(document).ready(function () {
+        $(".adminCanSee").hide();
+        $(".studentCanSee").show();
+    });    
+</script>
+}

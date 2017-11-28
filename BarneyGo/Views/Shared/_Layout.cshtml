@@ -24,10 +24,11 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Admins", "Index", "Admin")</li>
-                    <li>@Html.ActionLink("Syllabuses", "Index", "Syllabus")</li>
-                    <li>@Html.ActionLink("Users", "Index", "Users")</li>
-                    <li>@Html.ActionLink("Days", "Index", "Days")</li>
+                    <li class="adminCanSee" hidden>@Html.ActionLink("Admins", "Index", "Admin")</li>
+                    <li class="adminCanSee" hidden>@Html.ActionLink("Syllabuses", "Index", "Syllabus")</li>
+                    <li class="adminCanSee" hidden>@Html.ActionLink("Users", "Index", "Users")</li>
+                    <li class="adminCanSee" hidden>@Html.ActionLink("Days", "Index", "Days")</li>
+                    <li class="studentCanSee" hidden>@Html.ActionLink("Upcoming Class", "DisplayDay", "Home")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -46,6 +47,12 @@
     </div>
     <div class="container body-content">
         @RenderBody()
+
+        @if (TempData["role"] != null)
+        {
+            <p id="role">@TempData["role"]</p>
+        }
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
@@ -55,5 +62,30 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+        <script>
+        $(document).ready(function () {
+            $("#denied").css("color", "red").fadeOut(2000);
+        });
+
+        $(document).ready(function () {
+            if ($("#role").html() === "Admin")
+            {
+                $(".adminCanSee").show();
+                $(".studentCanSee").hide();
+            }
+            else if ($("#role").html() === "Student")
+            {
+                $(".studentCanSee").show();
+                $(".adminCanSee").hide();
+            }
+            else
+            {
+                $(".adminCanSee").hide();
+                $(".studentCanSee").hide();
+            }
+        });
+
+        </script>
 </body>
 </html>

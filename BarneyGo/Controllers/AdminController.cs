@@ -18,6 +18,7 @@ namespace BarneyGo.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            TempData["role"] = "Admin";
             return View(db.Admins.ToList());
         }
 

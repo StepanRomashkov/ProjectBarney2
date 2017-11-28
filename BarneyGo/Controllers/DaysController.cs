@@ -19,6 +19,7 @@ namespace BarneyGo.Controllers
         public ActionResult Index()
         {
             var days = db.Days.Include(d => d.Syllabus);
+            TempData["role"] = "Admin";
             return View(days.ToList());
         }
 
