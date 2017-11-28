@@ -48,7 +48,7 @@ namespace BarneyGo.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create([Bind(Include = "Id,SyllabusId,Date,Location,Topics,Labs,NextClass")] Day day)
+        public ActionResult Create([Bind(Include = "Id,SyllabusId,Date,Location,Wifi,Topics,Labs,NextClass")] Day day)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace BarneyGo.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "Id,SyllabusId,Date,Location,Topics,Labs,NextClass")] Day day)
+        public ActionResult Edit([Bind(Include = "Id,SyllabusId,Date,Location,Wifi,Topics,Labs,NextClass")] Day day)
         {
             if (ModelState.IsValid)
             {

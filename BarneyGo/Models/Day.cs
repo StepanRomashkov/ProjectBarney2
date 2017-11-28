@@ -10,6 +10,7 @@ namespace BarneyGo.Models
         public int SyllabusId { get; set; }
         public DateTime Date { get; set; }
         public string Location { get; set; }
+        public string Wifi { get; set; }
         public string Topics { get; set; }
         public string Labs { get; set; }
         public string NextClass { get; set; }
