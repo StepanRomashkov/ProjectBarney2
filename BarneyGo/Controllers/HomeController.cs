@@ -76,14 +76,11 @@ namespace BarneyGo.Controllers
         }
 
         public ActionResult DisplayDay(User user)
-        {
-            var days = db.Days.Include(d => d.Syllabus);
-           
+        {         
             DateTime today = new DateTime(2017, 11, 16);
-            var allDays = db.Days;
-//            var currentDay = allDays.Where(x => x.Date.CompareTo(today) >= 0);
-            var currentDay = allDays.Where(x => x.Date.CompareTo(today) >= 0).Min(day => day.Date);
-            ViewData["nextClass"] = currentDay.Date.ToShortDateString();
+            var allDays = db.Days.Include(day => day.Syllabus).Where(day => day.SyllabusId == user.SyllabusId);
+            DateTime currentDate = allDays.Where(x => x.Date.CompareTo(today) >= 0).Min(day => day.Date);
+            ViewBag.currentDay = allDays.Where(x => x.Date.Equals(currentDate)).Single();
             ViewData["userName"] = user.FirstName + " " + user.LastName;
 
             ViewBag.Message = "Let's get some data from localdb, " + user.FirstName;

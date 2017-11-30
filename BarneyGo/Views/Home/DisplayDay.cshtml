@@ -6,10 +6,15 @@
 }
 
 <h2>Welcome, @ViewData["userName"]</h2>
-<h2>Next class at @ViewData["nextClass"]</h2>
-<h3>@ViewBag.Message</h3>
+<h2>Next class at @ViewBag.currentDay.Date.ToShortDateString()</h2>
+<h3>Current day ID is: @ViewBag.currentDay.Id</h3>
 
-
+<h4>Next class date: @ViewBag.currentDay.Date</h4>
+<h4>Next class location: @ViewBag.currentDay.Location</h4>
+<h4>Next class wi-fi: @ViewBag.currentDay.Wifi</h4>
+<h4>Next class topics: @ViewBag.currentDay.Topics</h4>
+<h4>Next class labs: @ViewBag.currentDay.Labs</h4>
+<h4>Next class due to: @ViewBag.currentDay.NextClass</h4>
 
 @section scripts
 {
