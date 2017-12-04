@@ -7,15 +7,12 @@
     }
     else
     {
-        loginStatus = "Logged out";
+        loginStatus = "Are you ready to experience IT?";
     }
 }
 
-
-<div class="jumbotron">
-    <h1>@loginStatus</h1>
+ <h1>@loginStatus</h1>
     @if (TempData["denied"] != null)
     {
         <h2 id="denied">@TempData["denied"]</h2>
     }
-</div>
