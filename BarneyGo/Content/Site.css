@@ -1,13 +1,17 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 300px;
     padding-bottom: 20px;
+    background: url(Detroit.jpg);
+    background-repeat: no-repeat;
+    background-size: cover
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    background-color: floralwhite;
+    background-color: white;
+    
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -30,4 +34,11 @@ textarea {
 
 .td {
     vertical-align: middle;
+}
+
+#HomeImage{
+    background-image: url(ExperienceITLogo.png);
+    width: 200px;
+    height: 50px;
+    display: block;
 }
