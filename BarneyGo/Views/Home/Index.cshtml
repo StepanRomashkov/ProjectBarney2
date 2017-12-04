@@ -11,11 +11,8 @@
     }
 }
 
-
-<div class="jumbotron">
-    <strong><em>@loginStatus</em></strong>
+ <h1>@loginStatus</h1>
     @if (TempData["denied"] != null)
     {
         <h2 id="denied">@TempData["denied"]</h2>
     }
-</div>

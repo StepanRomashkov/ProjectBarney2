@@ -1,17 +1,42 @@
 ﻿body {
-    padding-top: 300px;
-    padding-bottom: 20px;
     background: url(Detroit.jpg);
     background-repeat: no-repeat;
-    background-size: cover
+    background-size: cover;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: white;
-    
+    color: white;
+    background-color: black;
+    padding: 20px 50px;
+    opacity: 0.7;
+    border-radius: 20px;
+    border: 1px groove gray;
+    margin: 150px auto;    
+}
+
+.navbar-inverse {
+    background-color: black;
+    opacity: 0.7;
+}
+
+.my-logo {
+    background: url(ExperienceITLogo.png) no-repeat;
+    background-size: cover;
+    display: block;
+    width: 237px;
+    height: 50px;
+}
+
+footer {
+    color: gray;
+    left: 20px;
+    bottom: 20px;
+}
+
+.navbar-default {
+    background-color: black;
+  
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -34,11 +59,4 @@ textarea {
 
 .td {
     vertical-align: middle;
-}
-
-#HomeImage{
-    background-image: url(ExperienceITLogo.png);
-    width: 200px;
-    height: 50px;
-    display: block;
 }
