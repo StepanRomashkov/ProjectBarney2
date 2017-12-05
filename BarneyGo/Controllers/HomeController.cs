@@ -72,9 +72,12 @@ namespace BarneyGo.Controllers
         }
 
         public ActionResult DisplayDay(User user)
-        {         
+        {
             DateTime today = new DateTime(2017, 11, 16);
             var allDays = db.Days.Include(day => day.Syllabus).Where(day => day.SyllabusId == user.SyllabusId);
+            var vm = new CreateDaysVm();
+            vm.Days = allDays.Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Date.ToString() }).ToList();
+            //var dayItems = allDays.Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Date.ToString() }).ToList();
             DateTime currentDate = allDays.Where(x => x.Date.CompareTo(today) >= 0).Min(day => day.Date);
             ViewBag.currentDay = allDays.Where(x => x.Date.Equals(currentDate)).Single();
             ViewBag.today = today.ToShortDateString();
@@ -82,7 +85,13 @@ namespace BarneyGo.Controllers
 
             ViewBag.Message = "Let's get some data from localdb, " + user.FirstName;
             TempData["role"] = "Student";
-            return View(allDays.ToList());
+            return View(vm);
         }
+    }
+
+    public class CreateDaysVm
+    {
+        public IEnumerable<SelectListItem> Days { get; set; }
+        public int SelectedDayId { get; set; }
     }
 }

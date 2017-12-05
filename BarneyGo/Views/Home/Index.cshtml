@@ -11,8 +11,10 @@
     }
 }
 
- <h1>@loginStatus</h1>
-    @if (TempData["denied"] != null)
-    {
-        <h2 id="denied">@TempData["denied"]</h2>
-    }
+<h1>@loginStatus</h1>
+
+@if (TempData["denied"] != null)
+{
+    <h2 id="denied">@TempData["denied"]</h2>
+}
+    
