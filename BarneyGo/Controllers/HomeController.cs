@@ -77,6 +77,7 @@ namespace BarneyGo.Controllers
             var allDays = db.Days.Include(day => day.Syllabus).Where(day => day.SyllabusId == user.SyllabusId);
             DateTime currentDate = allDays.Where(x => x.Date.CompareTo(today) >= 0).Min(day => day.Date);
             ViewBag.currentDay = allDays.Where(x => x.Date.Equals(currentDate)).Single();
+            ViewBag.today = today.ToShortDateString();
             ViewData["userName"] = user.FirstName + " " + user.LastName;
 
             ViewBag.Message = "Let's get some data from localdb, " + user.FirstName;

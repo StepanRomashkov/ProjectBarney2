@@ -1,20 +1,58 @@
 ﻿@model IEnumerable<BarneyGo.Models.Day>
 
 @{
-    ViewBag.Title = "DisplayDay";
-    
+    ViewBag.Title = "DisplayDay";    
 }
-
-<h2>Welcome, @ViewData["userName"]</h2>
-<h2>Next class at @ViewBag.currentDay.Date.ToShortDateString()</h2>
-<h3>Current day ID is: @ViewBag.currentDay.Id</h3>
-
-<h4>Next class date: @ViewBag.currentDay.Date</h4>
-<h4>Next class location: @ViewBag.currentDay.Location</h4>
-<h4>Next class wi-fi: @ViewBag.currentDay.Wifi</h4>
-<h4>Next class topics: @ViewBag.currentDay.Topics</h4>
-<h4>Next class labs: @ViewBag.currentDay.Labs</h4>
-<h4>Next class due to: @ViewBag.currentDay.NextClass</h4>
+<div class="row">
+    <div class="col-md-12" style="text-align: center"><h1>Welcome, @ViewData["userName"]</h1></div>
+</div>
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4" style="text-align:right"><h3>Today is @ViewBag.today</h3></div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <p class="lead">Next class date/</p>
+        <blockquote>
+            <p>@ViewBag.currentDay.Date.ToShortDateString()</p>
+        </blockquote>
+    </div>
+    <div class="col-md-6">
+        <p class="lead">Location/</p>
+        <blockquote>
+            <p>@ViewBag.currentDay.Location</p>
+        </blockquote>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p class="lead">Wi-Fi/</p>
+        <blockquote>
+            <p>@ViewBag.currentDay.Wifi</p>
+        </blockquote>
+    </div>
+    <div class="col-md-6">
+        <p class="lead">Topics/</p>
+        <blockquote>
+            <p>@ViewBag.currentDay.Topics</p>
+        </blockquote>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p class="lead">Labwork/</p>
+        <blockquote>
+            <p>@ViewBag.currentDay.Labs</p>
+        </blockquote>
+    </div>
+    <div class="col-md-6">
+        <p class="lead">Homework/</p>
+        <blockquote>
+            <p>@ViewBag.currentDay.NextClass</p>
+        </blockquote>
+    </div>
+</div>
 
 @section scripts
 {
