@@ -28,7 +28,15 @@
                     <li class="adminCanSee" hidden>@Html.ActionLink("Users", "Index", "Users")</li>
                     <li class="adminCanSee" hidden>@Html.ActionLink("Days", "Index", "Days")</li>
                     <li class="studentCanSee" hidden>@Html.ActionLink("Upcoming Class", "DisplayDay", "Home")</li>
-                    <li class="studentCanSee" hidden></li>
+                    @{ 
+                        var lpLink = Html.ActionLink("Learning Plan", "LearningPlan", "Home");
+                        if (ViewBag.userId != null)
+                        {
+                            int id = ViewBag.userId;
+                            lpLink = Html.ActionLink("Learning Plan", "LearningPlan", id);
+                        }
+                    }
+                    <li class="studentCanSee" hidden>@lpLink</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>

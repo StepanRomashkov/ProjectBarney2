@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BarneyGo.DAL;
@@ -71,27 +72,52 @@ namespace BarneyGo.Controllers
                 return View();
         }
 
-        public ActionResult DisplayDay(User user)
+        public ActionResult DisplayDay()
         {
+            User currentUser = GetUserByEmail(System.Security.Claims.ClaimsPrincipal.Current.Claims.ElementAt(4).Value);
             DateTime today = new DateTime(2017, 11, 16);
-            var allDays = db.Days.Include(day => day.Syllabus).Where(day => day.SyllabusId == user.SyllabusId);
-            var vm = new CreateDaysVm();
-            vm.Days = allDays.Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Date.ToString() }).ToList();
-            //var dayItems = allDays.Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Date.ToString() }).ToList();
-            DateTime currentDate = allDays.Where(x => x.Date.CompareTo(today) >= 0).Min(day => day.Date);
-            ViewBag.currentDay = allDays.Where(x => x.Date.Equals(currentDate)).Single();
+            var allDays = GetCurrentUserDays(currentUser);
+            DateTime upcomingDay = allDays.Where(x => x.Date.CompareTo(today) >= 0).Min(day => day.Date);
+
+            ViewBag.currentDay = allDays.Where(x => x.Date.Equals(upcomingDay)).SingleOrDefault();
             ViewBag.today = today.ToShortDateString();
-            ViewData["userName"] = user.FirstName + " " + user.LastName;
+            ViewBag.userName = currentUser.FirstName + " " + currentUser.LastName;
+            ViewBag.userId = currentUser.Id;
 
-            ViewBag.Message = "Let's get some data from localdb, " + user.FirstName;
             TempData["role"] = "Student";
-            return View(vm);
+            return View(currentUser);
         }
-    }
 
-    public class CreateDaysVm
-    {
-        public IEnumerable<SelectListItem> Days { get; set; }
-        public int SelectedDayId { get; set; }
+        public ActionResult LearningPlan()
+        {
+
+            User currentUser = GetUserByEmail(System.Security.Claims.ClaimsPrincipal.Current.Claims.ElementAt(4).Value);
+            var days = GetCurrentUserDays(currentUser).ToList();
+            days.Sort(delegate (Day x, Day y)
+            {
+                if (x.Date == null && y.Date == null) return 0;
+                else if (x.Date == null) return -1;
+                else if (y.Date == null) return 1;
+                else return x.Date.CompareTo(y.Date);
+            });
+            TempData["role"] = "Student";
+            return View(days);
+        }
+
+        User GetCurrentUser (int id)
+        {
+            return db.Users.Where(u => u.Id == id).SingleOrDefault();
+        }
+
+        User GetUserByEmail (string email)
+        {
+            return db.Users.Where(u => u.Email.Equals(email)).SingleOrDefault();
+        }
+
+        IQueryable<Day> GetCurrentUserDays (User user)
+        {
+            return db.Days.Include(d => d.Syllabus).Where(d => d.SyllabusId == user.SyllabusId);
+        }
+
     }
 }

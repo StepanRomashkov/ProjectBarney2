@@ -1,20 +1,9 @@
-﻿@model BarneyGo.Controllers.CreateDaysVm
-
-@{
-    ViewBag.Title = "DisplayDay";    
+﻿@{
+    ViewBag.Title = "DisplayDay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <div class="col-md-12" style="text-align: center"><h1>Welcome, @ViewData["userName"]</h1></div>
-</div>
-<div class="row">
-    @using (Html.BeginForm())
-    {
-
-    <div class="col-md-8"></div>
-    <div class="col-md-4" style="text-align:right">
-        @Html.DropDownListFor(f => f.SelectedDayId, Model.Days, new { @class = "form-control"})
-    </div>
-    }
+    <div class="col-md-12" style="text-align: center"><h1>Welcome, @ViewBag.userName</h1></div>
 </div>
 <div class="row">
     <div class="col-md-8"></div>

@@ -41,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Wifi, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Wifi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Wifi, new { htmlAttributes = new { @class = "form-control" }, rows = "3", style = "width: 600px;" })
                 @Html.ValidationMessageFor(model => model.Wifi, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Topics, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Topics, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Topics, new { htmlAttributes = new { @class = "form-control" }, rows = "5", style = "width: 600px;" })
                 @Html.ValidationMessageFor(model => model.Topics, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -57,7 +57,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Labs, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Labs, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Labs, new { htmlAttributes = new { @class = "form-control" }, rows = "5", style = "width: 600px;" })
                 @Html.ValidationMessageFor(model => model.Labs, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -65,7 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NextClass, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NextClass, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.NextClass, new { htmlAttributes = new { @class = "form-control" }, rows = "5", style = "width: 600px;" })
                 @Html.ValidationMessageFor(model => model.NextClass, "", new { @class = "text-danger" })
             </div>
         </div>
