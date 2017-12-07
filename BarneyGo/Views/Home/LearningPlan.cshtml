@@ -3,49 +3,25 @@
     ViewBag.Title = "LearningPlan";
 }
 
-<h2>LearningPlan</h2>
+<h1 style="text-align: center; padding-bottom: 30px;">Syllabus</h1>
+<hr />
+<div class="row">
+    <div class="col-md-2"><p class="lead">Date</p></div>
+    <div class="col-md-3"><p class="lead">Location</p></div>
+    <div class="col-md-3"><p class="lead">Topics</p></div>
+    <div class="col-md-3"><p class="lead">Labs</p></div>
+    <div class="col-md-1"></div>    
+</div>
+<hr />
 
-<table class="table">
-    <tr>
-        <th>
-            Date
-        </th>
-        <th>
-            Location
-        </th>
-        <th>
-            Wi-Fi
-        </th>
-        <th>
-            Topics
-        </th>
-        <th>
-            Labs
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in ViewBag.days) {
-    <tr>
-        <td>
-            @item.Date.ToShortDateString()
-        </td>
-        <td>
-            @item.Location)
-        </td>
-        <td>
-            @item.Wifi)
-        </td>
-        <td>
-            @item.Topics)
-        </td>
-        <td>
-            @item.Labs)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.Id })
-        </td>
-    </tr>
+@foreach (var item in ViewBag.days)
+{
+    <hr />
+    <div class="row">
+        <div class="col-md-2"><pre class="dayItem">@item.Date.ToShortDateString()</pre></div>
+        <div class="col-md-3"><pre class="dayItem">@item.Location</pre></div>
+        <div class="col-md-3"><pre class="dayItem">@item.Topics</pre></div>
+        <div class="col-md-3"><pre class="dayItem">@item.Labs</pre></div>
+        <div class="col-md-1">@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })</div>
+    </div>
 }
-
-</table>

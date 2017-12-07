@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,59 +6,58 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Day</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Date
+            <p class="lead">Date/</p>
         </dt>
 
         <dd>
-            @ViewBag.day.Date.ToShortDateString()
+            <pre>@ViewBag.day.Date.ToShortDateString()</pre>
         </dd>
 
         <dt>
-            Location
+            <p class="lead">Location/</p>
         </dt>
 
         <dd>
-            @ViewBag.day.Location
+            <pre>@ViewBag.day.Location</pre>
         </dd>
 
         <dt>
-            Wi-Fi
+            <p class="lead">Wi-Fi/</p>
         </dt>
 
         <dd>
-            @ViewBag.day.Wifi
+            <pre>@ViewBag.day.Wifi</pre>
         </dd>
 
         <dt>
-            Topics
+            <p class="lead">Topics/</p>
         </dt>
 
         <dd>
-            @ViewBag.day.Topics
+            <pre>@ViewBag.day.Topics</pre>
         </dd>
 
         <dt>
-            Labs
+            <p class="lead">Labs/</p>
         </dt>
 
         <dd>
-            @ViewBag.day.Labs
+            <pre>@ViewBag.day.Labs</pre>
         </dd>
 
         <dt>
-            NextClass
+            <p class="lead">Homework/</p>
         </dt>
 
         <dd>
-            @ViewBag.day.NextClass
+            <pre>@ViewBag.day.NextClass</pre>
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to List", "LearningPlan")
+    @Html.ActionLink("Back to List", "LearningPlan", null, new { @class = "btn btn-primary btn-sm" })
 </p>
