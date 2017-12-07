@@ -56,8 +56,6 @@ namespace BarneyGo.Controllers
                 return RedirectToAction("LogOff", "Account");
             }
 
-            ViewBag.Message = "Current user's email: " + curUserEmail + " | " +
-                               "Role: " + role + " | Name: " + curUserName;
             if (role.Equals("Admin"))
             {
                 TempData["role"] = "Admin";
@@ -100,9 +98,26 @@ namespace BarneyGo.Controllers
                 else if (y.Date == null) return 1;
                 else return x.Date.CompareTo(y.Date);
             });
+            ViewBag.days = days;
             TempData["role"] = "Student";
             return View(days);
         }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ViewBag.day = db.Days.Find(id);
+            if (ViewBag.day == null)
+            {
+                return HttpNotFound();
+            }
+            TempData["role"] = "Student";
+            return View();
+        }
+
 
         User GetCurrentUser (int id)
         {

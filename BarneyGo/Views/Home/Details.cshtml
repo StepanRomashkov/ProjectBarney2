@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Day</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Date
+        </dt>
+
+        <dd>
+            @ViewBag.day.Date.ToShortDateString()
+        </dd>
+
+        <dt>
+            Location
+        </dt>
+
+        <dd>
+            @ViewBag.day.Location
+        </dd>
+
+        <dt>
+            Wi-Fi
+        </dt>
+
+        <dd>
+            @ViewBag.day.Wifi
+        </dd>
+
+        <dt>
+            Topics
+        </dt>
+
+        <dd>
+            @ViewBag.day.Topics
+        </dd>
+
+        <dt>
+            Labs
+        </dt>
+
+        <dd>
+            @ViewBag.day.Labs
+        </dd>
+
+        <dt>
+            NextClass
+        </dt>
+
+        <dd>
+            @ViewBag.day.NextClass
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "LearningPlan")
+</p>

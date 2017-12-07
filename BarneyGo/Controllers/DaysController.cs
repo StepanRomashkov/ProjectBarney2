@@ -35,6 +35,7 @@ namespace BarneyGo.Controllers
             {
                 return HttpNotFound();
             }
+            TempData["role"] = "Admin";
             return View(day);
         }
 
@@ -59,6 +60,7 @@ namespace BarneyGo.Controllers
             }
 
             ViewBag.SyllabusId = new SelectList(db.Syllabuses, "Id", "Name", day.SyllabusId);
+            TempData["role"] = "Admin";
             return View(day);
         }
 
@@ -75,6 +77,7 @@ namespace BarneyGo.Controllers
                 return HttpNotFound();
             }
             ViewBag.SyllabusId = new SelectList(db.Syllabuses, "Id", "Name", day.SyllabusId);
+            TempData["role"] = "Admin";
             return View(day);
         }
 
@@ -91,6 +94,7 @@ namespace BarneyGo.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.SyllabusId = new SelectList(db.Syllabuses, "Id", "Name", day.SyllabusId);
+            TempData["role"] = "Admin";
             return View(day);
         }
 
@@ -106,6 +110,7 @@ namespace BarneyGo.Controllers
             {
                 return HttpNotFound();
             }
+            TempData["role"] = "Admin";
             return View(day);
         }
 

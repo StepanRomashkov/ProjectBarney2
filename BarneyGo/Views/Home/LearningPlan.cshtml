@@ -1,5 +1,4 @@
-﻿@model IEnumerable<BarneyGo.Models.Day>
-
+﻿
 @{
     ViewBag.Title = "LearningPlan";
 }
@@ -9,54 +8,42 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Syllabus.Name)
+            Date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            Location
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Location)
+            Wi-Fi
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Wifi)
+            Topics
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Topics)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Labs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NextClass)
+            Labs
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in ViewBag.days) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Syllabus.Name)
+            @item.Date.ToShortDateString()
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Date)
+            @item.Location)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Location)
+            @item.Wifi)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Wifi)
+            @item.Topics)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Topics)
+            @item.Labs)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Labs)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NextClass)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id })
         </td>
     </tr>
 }

@@ -260,6 +260,7 @@
     <Content Include="Views\Days\Index.cshtml" />
     <Content Include="Views\Home\DisplayDay.cshtml" />
     <Content Include="Views\Home\LearningPlan.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
